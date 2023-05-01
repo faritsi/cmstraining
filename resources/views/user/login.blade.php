@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link href="/css/loginpage.css" rel="stylesheet" type="text/css" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="assets/images/fav.png" rel="shortcut icon" type="image/x-icon" />
+        <link href="/images/fav.png" rel="shortcut icon" type="image/x-icon" />
         <title><?= $title; ?></title>
     </head>
     <body>
