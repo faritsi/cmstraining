@@ -35,9 +35,10 @@
 									<div class="formcoversubtitle">
 										Dashboard
 									</div>
-									<form action="#" method="post" onSubmit="return validasi(this)">
-										<input name="admin_username" type="text" class="formcoverinput" placeholder="Username" required />
-										<input name="admin_password" type="password" class="formcoverinput" placeholder="Password" required />
+									<form action="{{ route('login.action') }}" method="POST">
+										@csrf
+										<input name="username" type="text" class="formcoverinput" placeholder="Username" required />
+										<input name="password" type="password" class="formcoverinput" placeholder="Password" required />
 										<div class="formcoverbutton">
 											<input type="submit" value="LOGIN" name="login" class="loginbutton">
 										</div>

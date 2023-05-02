@@ -1,6 +1,5 @@
-@extends('app')
+@extends('dashboard/app')
 @section('content')
-@auth
 <div id="bgdash">
     <div id="bodash" class="clearfix">
         <div class="dashbox">
@@ -157,5 +156,4 @@ var myChart = new Chart(ctx, {
     }
 });
 </script>
-@endauth
 @endsection

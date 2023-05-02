@@ -43,6 +43,7 @@
      <title>@yield('title', $title)</title>
 </head>
 <body>
+	@auth
     <div id="bgfirst">
         <div id="bofirst" class="clearfix">
 			<div class="firstbackground">
@@ -54,12 +55,12 @@
 						<img src="/images/logo.png" alt="">
 					</div>
 					<div class="sidebartit">
-						<i class="fas fa-chart-line"></i> Dashboard
+						<i class="fas fa-chart-line"></i> {{ Auth::user()->name }}
 					</div>
 					<div class="sidebarlink" id="nav">
-						<ul>
-							<li><a href="index.php?m=dashboard">Dashboard</a></li>
-							<li><a href="index.php?m=admin">Admin</a></li>
+						<ul class="menu">
+							<li><a href="{{ route('dashboard') }}" class="navlink active">Dashboard</a></li>
+							<li><a href="#" class="navlink">Admin</a></li>
 						</ul>
 					</div>
 					<div class="sidebarview">
@@ -73,7 +74,7 @@
 					<div id="bgtop">
 						<div id="botop" class="clearfix">
 							<div class="tooglebar">
-								<a><i class="fa fa-bars" onclick="btntoogle();"></i></a> <h1>@yield('title', $title)</h1>
+								<a><i class="fa fa-bars" onclick="btntoogle();"></i></a> <span>@yield('title', $title)</span>
 							</div>
 							<div class="avatar">
 								<div class="avatarsetting">
@@ -100,29 +101,39 @@
 					</div>
 					<div id="bgcont">
 						<div id="bocont">
-                            @yield('content')
+							@yield('content')
 						</div>
 					</div>
 				</div>
 			</div>	
         </div>
     </div>
+	@endauth
 </body>
 <script>
-// Add active class to the current button (highlight it)
-var header = document.getElementById("nav");
-var btns = header.getElementsByClassName("navlink");
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function() {
-  var current = document.getElementsByClassName("active");
-  current[0].className = current[0].className.replace(" active", "");
-  this.className += " active";
-  });
-}
+const menu = document.querySelector(".menu");
 
-function btntoogle(){
-	var nav = document.getElementById("sidebar");
-	nav.classList.toggle("active");
-}
+// 2. jika element dengan class menu diklik
+menu.addEventListener('click', function(e) {
+    // 3. maka ambil element apa yang diklik oleh user
+    const targetMenu = e.target;
+
+    // 4. lalu cek, jika element itu adalah link dengan class menu__link
+    if(targetMenu.classList.contains('navlink')) {
+            
+        // 5. maka ambil menu link yang aktif
+        const menuLinkActive = document.querySelector("ul li a.active");
+
+        // 6. lalu cek, Jika menu link active ada dan menu yang di klik user adalah menu yang tidak sama dengan menu yang aktif, (cara cek-nya yaitu dengan membandingkan value attribute href-nya)
+        if(menuLinkActive !== null && targetMenu.getAttribute('href') !== menuLinkActive.getAttribute('href')) {
+
+            // 7. maka hapus class active pada menu yang sedang aktif
+            menuLinkActive.classList.remove('active');
+        }
+
+        // 8. terakhir tambahkan class active pada menu yang di klik oleh user
+        targetMenu.classList.add('active');
+    }
+});
 </script>
 </html>

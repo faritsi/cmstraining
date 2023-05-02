@@ -40,7 +40,7 @@ a {text-decoration:none;}
 #botop{width:95%;margin: 0 auto;padding:0;}
 .tooglebar{width:50%;padding:0;margin:9px auto;float:left;}
 .tooglebar svg{color:#fff;font-size:20px;}
-.tooglebar h1{color:#fff;font-size: 20px;margin-left: 1%;}
+.tooglebar span{color:#fff;font-size: 20px;margin-left: 1%;}
 .avatar{width:50%;padding:0;margin:0;float:right;}
 .avatarimg{width:40px;height: 40px;float:right;background:#fff;padding:5px;border-radius: 50%;}
 .avatarimg img{width:100%;}
