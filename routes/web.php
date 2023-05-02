@@ -21,3 +21,4 @@ Route::get('dashboard', [UserController::class, 'dashboard'])->name('dashboard')
 Route::get('admin', [UserController::class, 'admin'])->name('admin');
 Route::post('admin', [UserController::class, 'admin_save'])->name('admin.action');
 Route::put('admin/{id}', [UserController::class, 'admin_update'])->name('admin.update');
+Route::get('admin/{id}', [UserController::class, 'admin_hapus'])->name('admin.hapus');

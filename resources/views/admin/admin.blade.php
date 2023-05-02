@@ -27,7 +27,10 @@
                             <td width="1%" align="center"><?= $no++; ?></td>
                             <td><?= $a->name; ?></td>
                             <td><?= $a->username; ?></td>
-                            <td><a href="#" id="myBtnEdit<?= $a->user_id; ?>" class="btnedit"><i class="fa fa-pen"></i></a> <a href="#" title="Hapus" class="btnhps" onclick="confirm('yakin mengahapus data?')"><i class="fa fa-trash"></i></a></td>
+                            <td>
+                                <a href="#" id="myBtnEdit<?= $a->user_id; ?>" class="btnedit"><i class="fa fa-pen"></i></a>
+                                <a href="javascript:void(0)" title="Hapus" class="btnhps" data-nama="<?= $a->name; ?>" data-url="{{ route('admin.hapus', $a->user_id) }}"><i class="fa fa-trash"></i></a>
+                            </td>
                         </tr>
                     <?php } ?>    
                 </tbody>
@@ -178,4 +181,19 @@
         </script>    
     @endforeach
 @endif
+<script type="text/javascript" lang="javascript">
+    $('.btnhps').click(function(e) {
+        let nama = $(this).data('nama'), url = $(this).data('url')
+        Swal.fire({
+            title: 'Anda Yakin?',
+            text: `Apakah anda yakin ingin menghapus ${nama}?`,
+            icon: 'question',
+            showCancelButton: true,
+        }).then(result => {
+            if (result.value) {
+                window.location = url
+            }
+        })
+    })
+</script>
 @endsection
