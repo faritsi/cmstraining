@@ -18,3 +18,6 @@ Route::post('login', [UserController::class, 'login_action'])->name('login.actio
 Route::get('register', [UserController::class, 'register'])->name('register');
 Route::post('register', [UserController::class, 'register_action'])->name('register.action');
 Route::get('dashboard', [UserController::class, 'dashboard'])->name('dashboard');
+Route::get('admin', [UserController::class, 'admin'])->name('admin');
+Route::post('admin', [UserController::class, 'admin_save'])->name('admin.action');
+Route::put('admin/{id}', [UserController::class, 'admin_update'])->name('admin.update');

@@ -63,4 +63,45 @@ class UserController extends Controller
         $data['title'] = 'Dashboard';
         return view('dashboard/dashboard', $data);
     }
+
+    public function admin()
+    {
+        $data['title'] = 'Admin';
+        $data['admin'] = User::all();
+        return view('admin/admin', $data);
+    }
+
+    public function admin_save(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'username' => 'required|unique:tb_user',
+            'password' => 'required',
+            'password_confirm' => 'required|same:password',
+        ]);
+
+        $user = new User([
+            'name' => $request->name,
+            'username' => $request->username,
+            'password' => Hash::make($request->password),
+        ]);
+        $user->save();
+
+        return redirect()->route('admin')->with('success', 'Tambah data admin berhasil!');
+    }
+
+    public function admin_update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required',
+            'username' => 'required',
+        ]);
+      
+        $u = User::findOrFail($id);
+        $u->name = $request->name;
+        $u->username = $request->username;
+        $u->save();
+      
+        return redirect()->route('admin')->with('success','User Berhasil Diubah');
+    }
 }

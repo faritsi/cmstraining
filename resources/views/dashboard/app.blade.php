@@ -25,14 +25,14 @@
 	<script src="/libs/ckeditor/ckeditor.js"></script>
 	<script src="/libs/ckeditor/samples/sample.js"></script>
 	<link href="/libs/ckeditor/samples/sample.css" rel="stylesheet"/>
+	<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
-    <link rel="stylesheet" href="/libs/sweetalert2.min.css">
     <script src="https://code.jquery.com/jquery-latest.min.js" ></script>
     <script  charset="utf8" src="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
-    <script src="/libs/sweetalert2.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
     <script>
         $(document).ready(function() {
             $('#example').DataTable( {
@@ -60,7 +60,7 @@
 					<div class="sidebarlink" id="nav">
 						<ul class="menu">
 							<li><a href="{{ route('dashboard') }}" class="navlink active">Dashboard</a></li>
-							<li><a href="#" class="navlink">Admin</a></li>
+							<li><a href="{{ route('admin') }}" class="navlink">Admin</a></li>
 						</ul>
 					</div>
 					<div class="sidebarview">
