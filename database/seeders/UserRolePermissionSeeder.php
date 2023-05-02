@@ -22,13 +22,13 @@ class UserRolePermissionSeeder extends Seeder
         DB::beginTransaction();
         try{
             $manager = User::create([
-                'name' => 'Dicky D',
-                'username' => 'dickyd29',
+                'name' => 'Dicky Darmawan',
+                'username' => 'dickyd2909',
                 'password' => '$2y$10$zRoMj4RpFPGjxdTEkWn80uaDZGX8eZIoDjzbTdKKYp6MgoIOcMGWq'
             ]);
             $it = User::create([
-                'name' => 'Dicky Darmawan',
-                'username' => 'dickyd2909',
+                'name' => 'Fadillah muammar',
+                'username' => 'fadil123',
                 'password' => '$2y$10$zRoMj4RpFPGjxdTEkWn80uaDZGX8eZIoDjzbTdKKYp6MgoIOcMGWq'
             ]);
             $staff = User::create([
