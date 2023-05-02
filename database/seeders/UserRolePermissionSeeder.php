@@ -26,24 +26,35 @@ class UserRolePermissionSeeder extends Seeder
                 'username' => 'dickyd29',
                 'password' => '$2y$10$zRoMj4RpFPGjxdTEkWn80uaDZGX8eZIoDjzbTdKKYp6MgoIOcMGWq'
             ]);
-    
+            $it = User::create([
+                'name' => 'Dicky Darmawan',
+                'username' => 'dickyd2909',
+                'password' => '$2y$10$zRoMj4RpFPGjxdTEkWn80uaDZGX8eZIoDjzbTdKKYp6MgoIOcMGWq'
+            ]);
             $staff = User::create([
                 'name' => 'Sanny Daffa',
                 'username' => 'sanny123',
                 'password' => '$2y$10$zRoMj4RpFPGjxdTEkWn80uaDZGX8eZIoDjzbTdKKYp6MgoIOcMGWq'
             ]);
     
-            $role_staff = Role::create(['name' => 'staff']);
+            
             $role_manager = Role::create(['name' => 'manager']);
-    
+            $role_it = Role::create(['name' => 'it']);
+            $role_staff = Role::create(['name' => 'staff']);
+            
             $permission = Permission::create(['name' => 'read role']);
             $permission = Permission::create(['name' => 'create role']);
             $permission = Permission::create(['name' => 'update role']);
             $permission = Permission::create(['name' => 'delete role']);
     
+            $role_manager->givePermission('read role');
+            $role_manager->givePermission('create role');
+            $role_manager->givePermission('update role');
+            $role_manager->givePermission('delete role');
+
             $staff->assignRole('staff');
             $manager->assignRole('manager');
-            $manager->assignRole('staff');
+            $it->assignRole('it');
 
             DB::commit();
         }catch(\Throwable $th){

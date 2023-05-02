@@ -66,12 +66,11 @@ class UserController extends Controller
 
     public function admin(Request $request)
     {
-        if($request->user()->hasRole('manager')){
-            $data['title'] = 'Admin';
-            $data['admin'] = User::all();
-            return view('admin/admin', $data);
-        }
-        abort(403);
+        
+        $this->authorize('read role');
+        $data['title'] = 'Admin';
+        $data['admin'] = User::all();
+        return view('admin/admin', $data);
         
     }
 
