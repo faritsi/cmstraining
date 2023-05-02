@@ -64,11 +64,15 @@ class UserController extends Controller
         return view('dashboard/dashboard', $data);
     }
 
-    public function admin()
+    public function admin(Request $request)
     {
-        $data['title'] = 'Admin';
-        $data['admin'] = User::all();
-        return view('admin/admin', $data);
+        if($request->user()->hasRole('manager')){
+            $data['title'] = 'Admin';
+            $data['admin'] = User::all();
+            return view('admin/admin', $data);
+        }
+        abort(403);
+        
     }
 
     public function admin_save(Request $request)
