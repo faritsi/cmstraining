@@ -104,10 +104,4 @@ class UserController extends Controller
       
         return redirect()->route('admin')->with('success','User Berhasil Diubah');
     }
-
-    public function admin_hapus($id){
-        $user = User::find($id);
-        $user->delete();
-        return redirect()->route('admin')->with('success','User Berhasil Dihapus');
-    }
 }
