@@ -9,7 +9,7 @@
 	<meta name="robots" content="index, follow">
 	<meta name="developer" content="dickydarmawan">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta name="author" content="Maliniart Olshop">
+	<meta name="author" content="Dicky Darmawan">
 	<meta property="og:locale" content="en_US" />
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="Maliniart Olshop" />
