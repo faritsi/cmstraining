@@ -67,7 +67,7 @@
 						<a href="https://olshop.maliniart.com" class="btnview" target="_blank">View Website</a>
 					</div>	
 					<div class="sidebarlogout">
-						<a href="#" class="btnlogout">Logout</a>
+						<a href="{{ route('logout') }}" class="btnlogout">Logout</a>
 					</div>
 				</div>
 				<div class="content">

@@ -60,6 +60,7 @@ class UserController extends Controller
 
     public function dashboard()
     {
+        
         $data['title'] = 'Dashboard';
         return view('dashboard/dashboard', $data);
     }
@@ -107,9 +108,18 @@ class UserController extends Controller
         return redirect()->route('admin')->with('success','User Berhasil Diubah');
     }
 
-    public function admin_hapus($id){
+    public function admin_hapus($id)
+    {
         $user = User::find($id);
         $user->delete();
         return redirect()->route('admin')->with('success','User Berhasil Dihapus');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
     }
 }

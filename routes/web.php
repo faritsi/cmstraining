@@ -19,6 +19,7 @@ Route::get('register', [UserController::class, 'register'])->name('register');
 Route::post('register', [UserController::class, 'register_action'])->name('register.action');
 Route::get('dashboard', [UserController::class, 'dashboard'])->name('dashboard');
 Route::get('admin', [UserController::class, 'admin'])->name('admin');
-Route::post('admin', [UserController::class, 'admin_save'])->name('admin.action');
+Route::post('admin', [UserController::class, 'admin_save'])->name('admin.action')->middleware('auth');
 Route::put('admin/{id}', [UserController::class, 'admin_update'])->name('admin.update');
 Route::get('admin/{id}', [UserController::class, 'admin_hapus'])->name('admin.hapus');
+Route::get('logout', [UserController::class, 'logout'])->name('logout');
