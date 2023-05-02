@@ -47,10 +47,10 @@ class UserRolePermissionSeeder extends Seeder
             $permission = Permission::create(['name' => 'update role']);
             $permission = Permission::create(['name' => 'delete role']);
     
-            $role_manager->givePermission('read role');
-            $role_manager->givePermission('create role');
-            $role_manager->givePermission('update role');
-            $role_manager->givePermission('delete role');
+            $role_manager->givePermissionTo('read role');
+            $role_manager->givePermissionTo('create role');
+            $role_manager->givePermissionTo('update role');
+            $role_manager->givePermissionTo('delete role');
 
             $staff->assignRole('staff');
             $manager->assignRole('manager');

@@ -6,9 +6,11 @@
             <div class="tabletoptit">
                 Data Admin
             </div>
+            @can('create role')
             <div class="tabletopbtn">
                 <a href="#" id="myBtn">+ Admin</a>
             </div>
+            @endcan
         </div>
         <div id="table">
             <table width="100%" cellpadding="0" cellspacing="0" border="0" class="display" id="example">

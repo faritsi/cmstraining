@@ -67,7 +67,6 @@ class UserController extends Controller
     public function admin(Request $request)
     {
         
-        $this->authorize('read role');
         $data['title'] = 'Admin';
         $data['admin'] = User::all();
         return view('admin/admin', $data);
