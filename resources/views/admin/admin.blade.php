@@ -23,6 +23,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {{-- menampilkan data admin --}}
                     <?php $no = 1; ?>
                     <?php foreach($admin as $a){ ?>
                         <tr>
